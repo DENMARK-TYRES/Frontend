@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DreamRoadNordic - Vintage Cars</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans bg-white text-black">
+
+    <!-- logo and info row -->
+    <div class="bg-red-700 text-white py-3">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <div class="flex items-center space-x-2">
+                <img src="Assets/images/rim.svg" alt="" srcset="" class="h-8 w-8">
+                <h1 class="text-3xl font-bold tracking-wider uppercase">dreamroadnordic</h1>
+                <img src="Assets/images/tyre.svg" alt="" srcset="" class="h-8 w-8">
+            </div>
+
+            <div class="flex items-center space-x-4"> <div class="flex items-center space-x-2">
+                    <span class="text-white text-xl font-semibold">Call us On</span>
+                    <img src="Assets/images/call_chat.svg" alt="" srcset="" class="h-8 w-8">
+                    <span class="text-lg font-semibold">+123 456 7890</span>
+                </div>
+
+                <div class="ml-4"> <select id="language-switcher" class="bg-black text-white border border-red-500 rounded px-2 py-1 text-base focus:outline-none focus:ring-2 focus:ring-red-300">
+                        <option value="en">English</option>
+                        <option value="fr">Français</option>
+                        <option value="da">Dansk (Danish)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar  -->
+    <nav class="bg-black text-white py-4 shadow-md">
+        <div class="container mx-auto px-4">
+            <ul class="flex justify-between w-full text-lg font-medium">
+                <li><a href="#" class="hover:text-red-500 transition duration-300">Brands Search</a></li>
+                <li><a href="#" class="hover:text-red-500 transition duration-300">Tyre Search</a></li>
+                <li><a href="#" class="hover:text-red-500 transition duration-300">Vehicle Search</a></li>
+                <li><a href="#" class="hover:text-red-500 transition duration-300">Contact</a></li>
+                <li><a href="#" class="hover:text-red-500 transition duration-300">About</a></li>
+                <li><a href="#" class="hover:text-red-500 transition duration-300">Tech Info</a></li>
+                <li><a href="#" class="hover:text-red-500 transition duration-300">Tyre Fitting</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="relative bg-white min-h-[60vh] flex flex-col justify-center items-center py-8">
+        <div class="container mx-auto px-4 w-full">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="relative bg-gray-300 h-[30vh] rounded-lg overflow-hidden flex items-center justify-center text-center p-4">
+                    <img src="https://via.placeholder.com/600x300/e0e0e0/ffffff?text=Vintage+Rims" alt="Vintage Rims" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-black opacity-40"></div>
+                    <div class="relative text-white z-10">
+                        <h2 class="text-3xl font-bold mb-2">Discover Vintage Rims</h2>
+                        <p class="text-lg">Find the perfect wheels for your classic ride.</p>
+                        <button class="mt-4 bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-full transition duration-300">Shop Rims</button>
+                    </div>
+                </div>
+
+                <div class="relative bg-gray-300 h-[30vh] rounded-lg overflow-hidden flex items-center justify-center text-center p-4">
+                    <img src="https://via.placeholder.com/600x300/cccccc/ffffff?text=Classic+Tires" alt="Classic Tires" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-black opacity-40"></div>
+                    <div class="relative text-white z-10">
+                        <h2 class="text-3xl font-bold mb-2">Premium Classic Tires</h2>
+                        <p class="text-lg">Ensure a smooth ride with our specialized tires.</p>
+                        <button class="mt-4 bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-full transition duration-300">Shop Tires</button>
+                    </div>
+                </div>
+
+                <div class="relative bg-gray-300 h-[30vh] rounded-lg overflow-hidden flex items-center justify-center text-center p-4 col-span-1 md:col-span-2 lg:col-span-1">
+                    <img src="https://via.placeholder.com/600x300/bbbbbb/ffffff?text=Search+by+Car+Type" alt="Search by Car Type" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-black opacity-40"></div>
+                    <div class="relative text-white z-10">
+                        <h2 class="text-3xl font-bold mb-2">Search by Car Type</h2>
+                        <p class="text-lg">Easily find parts compatible with your vehicle.</p>
+                        <button class="mt-4 bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-full transition duration-300">Browse Cars</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </body>
+</html>
