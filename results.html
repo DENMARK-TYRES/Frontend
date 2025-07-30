@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results - DreamRoadNordic</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Optional: Add any global styles or font preferences here */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-black min-h-screen flex flex-col">
+
+    <!-- Header (Optional: You might want to include your main header here for consistency) -->
+    <header class="bg-red-700 text-white py-3 shadow-md">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <img src="Assets/images/rim.svg" alt="Rim Icon" class="h-6 w-6">
+                <h1 class="text-xl font-bold tracking-wider uppercase">dreamroadnordic</h1>
+                <img src="Assets/images/tyre.svg" alt="Tyre Icon" class="h-6 w-6">
+            </a>
+            <nav>
+                <a href="index.html" class="bg-black text-white px-4 py-2 rounded-md hover:bg-red-800 transition duration-300">Back to Home</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area for Results -->
+    <main class="flex-grow container mx-auto py-12 px-4">
+        <h2 class="text-3xl font-bold text-center text-black mb-8">Search Results</h2>
+
+        <!-- Display Search Query -->
+        <div id="search-query-display" class="bg-white p-4 rounded-lg shadow-md mb-8 text-center text-gray-700">
+            <!-- Query will be inserted here by JavaScript -->
+        </div>
+
+        <!-- Results Grid -->
+        <div id="results-container" class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Products will be dynamically loaded here -->
+        </div>
+
+        <!-- No Results Message -->
+        <div id="no-results-message" class="hidden bg-white p-6 rounded-lg shadow-md text-center text-gray-600">
+            <p class="text-xl font-semibold mb-4">No products found matching your criteria.</p>
+            <p>Please try a different search or <a href="index.html" class="text-red-700 hover:underline">go back to the search page</a>.</p>
+        </div>
+    </main>
+
+    <!-- Footer (Optional: You might want to include your main footer here for consistency) -->
+    <footer class="bg-black text-white py-6 px-4 text-center">
+        <p>&copy; 2024 DreamRoadNordic. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const resultsContainer = document.getElementById('results-container');
+            const noResultsMessage = document.getElementById('no-results-message');
+            const searchQueryDisplay = document.getElementById('search-query-display');
+
+            // Retrieve search results from localStorage
+            const storedResults = localStorage.getItem('searchResults');
+            const storedQuery = localStorage.getItem('searchQuery');
+            let searchResults = [];
+            let searchQuery = {};
+
+            if (storedResults) {
+                searchResults = JSON.parse(storedResults);
+            }
+            if (storedQuery) {
+                searchQuery = JSON.parse(storedQuery);
+            }
+
+            // Display the search query
+            if (searchQuery.productName || searchQuery.priceRange || searchQuery.productGroup) {
+                let queryText = 'Your search for: ';
+                const parts = [];
+                if (searchQuery.productName) parts.push(`Product Name: "${searchQuery.productName}"`);
+                if (searchQuery.priceRange) parts.push(`Price Range: "${searchQuery.priceRange}"`);
+                if (searchQuery.productGroup) parts.push(`Product Group: "${searchQuery.productGroup}"`);
+                searchQueryDisplay.textContent = queryText + parts.join(', ');
+            } else {
+                searchQueryDisplay.textContent = 'No specific search query provided.';
+            }
+
+            // Render the products
+            if (searchResults.length > 0) {
+                resultsContainer.innerHTML = ''; // Clear any existing content
+                searchResults.forEach(product => {
+                    const productCard = document.createElement('div');
+                    // Card layout: flex-col on mobile, flex-row on large screens (lg)
+                    productCard.classList.add('bg-white', 'rounded-lg', 'shadow-md', 'overflow-hidden', 'hover:shadow-xl', 'transition-shadow', 'duration-300', 'flex', 'flex-col', 'lg:flex-row');
+
+                    // Use the first image as the main image, or a placeholder if none
+                    const imageUrl = product.images && product.images.length > 0 ? product.images[0] : 'https://placehold.co/400x300/e0e0e0/ffffff?text=No+Image';
+
+                    productCard.innerHTML = `
+                        <!-- Image Section -->
+                        <div class="lg:w-1/3 flex-shrink-0">
+                            <img src="${imageUrl}" alt="${product.name}" class="w-full h-48 object-cover lg:h-full lg:rounded-l-lg">
+                        </div>
+
+                        <!-- Details and CTA Section -->
+                        <div class="p-4 flex-grow lg:w-2/3 flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-2xl font-bold mb-2">${product.name}</h3>
+                                <p class="text-gray-700 text-xl font-semibold mb-2">$${product.price.toFixed(2)}</p>
+                                <p class="text-gray-600 text-base mb-4">${product.description}</p>
+                            </div>
+                            <!-- Call to Action Buttons -->
+                            <div class="mt-4 flex flex-col sm:flex-row gap-3">
+                                <a href="tel:+1234567890" class="flex-1 bg-red-700 text-white text-center py-2 px-4 rounded-md hover:bg-red-800 transition duration-300 font-semibold">
+                                    Call to Order
+                                </a>
+                                <a href="#" class="flex-1 bg-gray-800 text-white text-center py-2 px-4 rounded-md hover:bg-gray-700 transition duration-300 font-semibold">
+                                    Order Online
+                                </a>
+                            </div>
+                        </div>
+                    `;
+                    resultsContainer.appendChild(productCard);
+                });
+                noResultsMessage.classList.add('hidden'); // Hide no results message
+            } else {
+                resultsContainer.innerHTML = ''; // Ensure container is empty
+                noResultsMessage.classList.remove('hidden'); // Show no results message
+            }
+
+            // Optional: Clear localStorage after displaying results to prevent stale data on next visit
+            localStorage.removeItem('searchResults');
+            localStorage.removeItem('searchQuery');
+        });
+    </script>
+</body>
+</html>
