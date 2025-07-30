@@ -21,6 +21,23 @@
         .dot.active {
             background-color: #ef4444; /* Tailwind red-500 */
         }
+        /* Keyframes for continuous rotation */
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    /*  custom animation classes for different speeds */
+    .animate-spin-slow {
+        animation: spin 5s linear infinite; 
+    }
+    .animate-spin-fast {
+        animation: spin 1s linear infinite; 
+    }
     </style>
 </head>
 <body class="font-sans bg-white text-black">
@@ -86,7 +103,7 @@
         </div>
     </nav>
 
-
+    <!-- Hero Section -->
     <section class="relative bg-white py-2 overflow-hidden">
         <div class="w-full px-0 md:px-4">
             <!-- Removed 'gap-4' from carousel-track -->
@@ -133,6 +150,96 @@
         <div id="carousel-dots" class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
         </div>
     </section>
+
+    <!-- Perfect Fit -->
+    <section class="bg-white py-14 px-4">
+        <div class="container mx-auto">
+            <!-- Heading with SVG Sandwich -->
+            <div class="flex items-center justify-center mb-10 text-center gap-2">
+                <!-- Left SVG Icon -->
+                <img src="Assets/images/tyre.svg" alt="Tyre Icon" class="h-12 w-12 md:h-20 md:w-20 flex-shrink-0">
+                <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-black uppercase tracking-wide flex-shrink-0">Find the Perfect Fit</h2>
+                <!-- Right SVG Icon -->
+                <img src="Assets/images/rim.svg" alt="Rim Icon" class="h-12 w-12 md:h-20 md:w-20 flex-shrink-0">
+            </div>
+
+        <!-- Navigation Cards -->
+            <div class="grid grid-cols-2 gap-2 md:grid-cols-2 md:gap-8">
+                <!-- Search for Tyres Card -->
+                <a href="#" class="relative block text-white p-4 sm:p-8 rounded-lg shadow-lg hover:shadow-xl hover:scale-[1.03] focus:outline-none focus:ring-4 focus:ring-yellow-500 transition-all duration-300 ease-in-out transform flex flex-col items-center justify-center text-center group aspect-square md:aspect-auto cursor-pointer
+                            bg-[url('Assets/images/tyres_bg.webp')] bg-cover bg-center md:bg-black">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 md:hidden rounded-lg"></div>
+                    <img src="Assets/images/Red_Rim.webp" alt="Tyre Icon" class="relative z-10 h-16 w-16 mb-2 md:h-20 md:w-20 animate-spin-slow group-hover:animate-spin-fast">
+                    <h3 class="relative z-10 text-2xl md:text-4xl font-bold mb-1 md:mb-2 flex items-center gap-2">
+                        Find Tyres <span class="text-yellow-400">→</span>
+                    </h3>
+                    <p class="relative z-10 text-sm md:text-lg hidden sm:block">Find the perfect set of tyres for your vintage vehicle.</p>
+                </a>
+
+                <!-- Search Rims Card -->
+                <a href="#" class="relative block text-white p-4 sm:p-8 rounded-lg shadow-lg hover:shadow-xl hover:scale-[1.03] focus:outline-none focus:ring-4 focus:ring-yellow-500 transition-all duration-300 ease-in-out transform flex flex-col items-center justify-center text-center group aspect-square md:aspect-auto cursor-pointer
+                            bg-[url('Assets/images/rims_bg.webp')] bg-cover bg-center md:bg-black">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 md:hidden rounded-lg"></div>
+                    <img src="Assets/images/Red_Rim.webp" alt="Rim Icon" class="relative z-10 h-16 w-16 mb-2 md:h-20 md:w-20 animate-spin-slow group-hover:animate-spin-fast">
+                    <h3 class="relative z-10 text-2xl md:text-4xl font-bold mb-1 md:mb-2 flex items-center gap-2">
+                        Explore Rims <span class="text-yellow-400">→</span>
+                    </h3>
+                    <p class="relative z-10 text-sm md:text-lg hidden sm:block">Explore a wide selection of vintage rims and wheels.</p>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="bg-black text-white py-12 px-4">
+        <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+            <!-- Services Column -->
+            <div>
+                <h3 class="text-xl font-bold mb-4 text-red-500">Services</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-red-300 transition-colors duration-200">Tyre Fitting</a></li>
+                    <li><a href="#" class="hover:text-red-300 transition-colors duration-200">Wheel Balancing</a></li>
+                    <li><a href="#" class="hover:text-red-300 transition-colors duration-200">Rim Repair</a></li>
+                    <li><a href="#" class="hover:text-red-300 transition-colors duration-200">Custom Builds</a></li>
+                </ul>
+            </div>
+
+            <!-- Support Column -->
+            <div>
+                <h3 class="text-xl font-bold mb-4 text-red-500">Support</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-red-300 transition-colors duration-200">FAQ</a></li>
+                    <li><a href="#" class="hover:text-red-300 transition-colors duration-200">Contact Us</a></li>
+                    <li><a href="#" class="hover:text-red-300 transition-colors duration-200">Shipping & Returns</a></li>
+                    <li><a href="#" class="hover:text-red-300 transition-colors duration-200">Order Tracking</a></li>
+                </ul>
+            </div>
+
+            <!-- Legal Column -->
+            <div>
+                <h3 class="text-xl font-bold mb-4 text-red-500">Legal</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-red-300 transition-colors duration-200">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-red-300 transition-colors duration-200">Terms of Service</a></li>
+                    <li><a href="#" class="hover:text-red-300 transition-colors duration-200">Cookie Policy</a></li>
+                </ul>
+            </div>
+
+            <!-- Socials Column -->
+            <div>
+                <h3 class="text-xl font-bold mb-4 text-red-500">Socials</h3>
+                <div class="flex space-x-4">
+                    <a href="#" class="hover:text-red-300 transition-colors duration-200">
+                        <img src="Assets/images/facebook.svg" alt="Facebook" class="w-7 h-7">
+                    </a>
+                    <a href="#" class="hover:text-red-300 transition-colors duration-200">
+                        <img src="Assets/images/email.svg" alt="Instagram" class="w-7 h-7">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="Assets/js/common.js"></script>
     </body>
