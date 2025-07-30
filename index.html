@@ -31,7 +31,7 @@
         }
     }
 
-    /*  custom animation classes for different speeds */
+    /* custom animation classes for different speeds */
     .animate-spin-slow {
         animation: spin 5s linear infinite; 
     }
@@ -234,7 +234,7 @@
     </section>
 
     <!-- footer -->
-    <footer class="bg-black text-white py-12 px-4">
+    <footer class="bg-black text-white py-6 px-4">
         <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             <!-- Services Column -->
             <div>
@@ -276,12 +276,20 @@
                         <img src="Assets/images/facebook.svg" alt="Facebook" class="w-7 h-7">
                     </a>
                     <a href="#" class="hover:text-red-300 transition-colors duration-200">
-                        <img src="Assets/images/email.svg" alt="Instagram" class="w-7 h-7">
+                        <img src="Assets/images/email.svg" alt="Email" class="w-7 h-7">
                     </a>
+                    <!-- Add more social icons as needed -->
                 </div>
             </div>
         </div>
+
+        <!-- Credits Section -->
+        <div class="container mx-auto flex flex-col md:flex-row md:justify-center md:space-x-2 text-center mt-4 pt-3 border-t border-gray-700">
+            <p class="text-sm text-gray-400">&copy; <span id="current-year"></span> <span class="text-red-500">dreamroadnordic</span>. All rights reserved.</p>
+            <p class="text-sm text-gray-400 mt-1 md:mt-0">Developed and maintained by <a href="https://quickofficepointe.com" target="_blank" class="text-red-500 hover:underline">QuickOfficePointe</a></p>
+        </div>
     </footer>
+
 
     <script src="Assets/js/common.js"></script>
     <script src="Assets/js/product_search.js"></script>

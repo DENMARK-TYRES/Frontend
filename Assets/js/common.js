@@ -209,5 +209,11 @@ document.addEventListener('DOMContentLoaded', function() {
         createDots();
         showSlide(0); // Show the first slide initially
         startAutoSlide(); // Start auto-sliding
-    
+
+
+        // footer year updator
+        const currentYearSpan = document.getElementById('current-year');
+        if (currentYearSpan) {
+            currentYearSpan.textContent = new Date().getFullYear();
+        }
 });
