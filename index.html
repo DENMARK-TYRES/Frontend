@@ -88,48 +88,51 @@
 
 
     <section class="relative bg-white py-2 overflow-hidden">
-    <div class="container mx-auto px-0 md:px-4"> <!-- px-0 to allow full width banners on mobile -->
-        <div id="carousel-track" class="flex transition-transform duration-700 ease-in-out gap-4">
-            <!-- Banner 1 -->
-            <div class="w-full flex-shrink-0 relative h-[30vh] rounded-lg overflow-hidden flex items-center justify-center text-center p-4">
-                <img src="https://via.placeholder.com/1200x300/e0e0e0/ffffff?text=Vintage+Rims" alt="Vintage Rims" class="absolute inset-0 w-full h-full object-cover">
-                <div class="absolute inset-0 bg-black opacity-40"></div>
-                <div class="relative text-white z-10">
-                    <h2 class="text-2xl md:text-3xl font-bold mb-2">Discover Vintage Rims</h2>
-                    <p class="text-base md:text-lg">Find the perfect wheels for your classic ride.</p>
-                    <button class="mt-4 bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-full transition duration-300">Shop Rims</button>
+        <div class="w-full px-0 md:px-4">
+            <!-- Removed 'gap-4' from carousel-track -->
+            <div id="carousel-track" class="flex transition-transform duration-700 ease-in-out">
+                <!-- Banner 1 - Added mr-4 -->
+                <div class="w-full flex-shrink-0 relative h-[30vh] rounded-lg overflow-hidden flex items-center justify-center text-center p-4 mr-4">
+                    <img src="Assets/images/banner_one.jpg" alt="Vintage Rims" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-black opacity-40"></div>
+                    <div class="relative text-white z-10">
+                        <!-- Content remains the same -->
+                        <!-- <h2 class="text-2xl md:text-3xl font-bold mb-2">Discover Vintage Rims</h2>
+                        <p class="text-base md:text-lg">Find the perfect wheels for your classic ride.</p>
+                        <button class="mt-4 bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-full transition duration-300">Shop Rims</button> -->
+                    </div>
                 </div>
-            </div>
 
-            <!-- Banner 2 -->
-            <div class="w-full flex-shrink-0 relative h-[30vh] rounded-lg overflow-hidden flex items-center justify-center text-center p-4">
-                <img src="https://via.placeholder.com/1200x300/cccccc/ffffff?text=Classic+Tires" alt="Classic Tires" class="absolute inset-0 w-full h-full object-cover">
-                <div class="absolute inset-0 bg-black opacity-40"></div>
-                <div class="relative text-white z-10">
-                    <h2 class="text-2xl md:text-3xl font-bold mb-2">Premium Classic Tires</h2>
-                    <p class="text-base md:text-lg">Ensure a smooth ride with our specialized tires.</p>
-                    <button class="mt-4 bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-full transition duration-300">Shop Tires</button>
+                <!-- Banner 2 - Added mr-4 -->
+                <div class="w-full flex-shrink-0 relative h-[30vh] rounded-lg overflow-hidden flex items-center justify-center text-center p-4 mr-4">
+                    <img src="Assets/images/banner_one.jpg" alt="Classic Tires" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-black opacity-40"></div>
+                    <div class="relative text-white z-10">
+                        <!-- Content remains the same -->
+                        <!-- <h2 class="text-2xl md:text-3xl font-bold mb-2">Premium Classic Tires</h2>
+                        <p class="text-base md:text-lg">Ensure a smooth ride with our specialized tires.</p>
+                        <button class="mt-4 bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-full transition duration-300">Shop Tires</button> -->
+                    </div>
                 </div>
-            </div>
 
-            <!-- Banner 3 (Search by Car Type) -->
-            <div class="w-full flex-shrink-0 relative h-[30vh] rounded-lg overflow-hidden flex items-center justify-center text-center p-4">
-                <img src="https://via.placeholder.com/1200x300/bbbbbb/ffffff?text=Search+by+Car+Type" alt="Search by Car Type" class="absolute inset-0 w-full h-full object-cover">
-                <div class="absolute inset-0 bg-black opacity-40"></div>
-                <div class="relative text-white z-10">
-                    <h2 class="text-2xl md:text-3xl font-bold mb-2">Search by Car Type</h2>
-                    <p class="text-base md:text-lg">Easily find parts compatible with your vehicle.</p>
-                    <button class="mt-4 bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-full transition duration-300">Browse Cars</button>
+                <!-- Banner 3 (Last banner, no mr-4) -->
+                <div class="w-full flex-shrink-0 relative h-[30vh] rounded-lg overflow-hidden flex items-center justify-center text-center p-4">
+                    <img src="Assets/images/banner_one.jpg" alt="Search by Car Type" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-black opacity-40"></div>
+                    <div class="relative text-white z-10">
+                        <!-- Content remains the same -->
+                        <!-- <h2 class="text-2xl md:text-3xl font-bold mb-2">Search by Car Type</h2>
+                        <p class="text-base md:text-lg">Easily find parts compatible with your vehicle.</p>
+                        <button class="mt-4 bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-full transition duration-300">Browse Cars</button> -->
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Carousel Navigation Dots -->
-    <div id="carousel-dots" class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
-        <!-- Dots will be generated by JavaScript -->
-    </div>
-</section>
+        <!-- Carousel Navigation Dots -->
+        <div id="carousel-dots" class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
+        </div>
+    </section>
 
     <script src="Assets/js/common.js"></script>
     </body>
