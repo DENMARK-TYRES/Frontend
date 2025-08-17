@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Classic Tyres - Vintage Cars</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         /* Hide scrollbar for a cleaner marquee effect, but keep functionality */
         .hide-scrollbar::-webkit-scrollbar {
@@ -354,10 +355,10 @@
             <div>
                 <h3 class="text-xl font-bold mb-4 text-red-500">Support</h3>
                 <ul class="space-y-2">
-                    <li><a href="#" class="hover:text-red-300 transition-colors duration-200">FAQ</a></li>
+                    <li><a href="FAQ.html" class="hover:text-red-300 transition-colors duration-200">FAQ</a></li>
                     <li><a href="#" class="hover:text-red-300 transition-colors duration-200">Contact Us</a></li>
                     <li><a href="#" class="hover:text-red-300 transition-colors duration-200">Shipping & Returns</a></li>
-                    <li><a href="#" class="hover:text-red-300 transition-colors duration-200">Order Tracking</a></li>
+                    <li><a href="#" id="orderTracking" class="hover:text-red-300 transition-colors duration-200">Order Tracking</a></li>
                 </ul>
             </div>
 
@@ -388,7 +389,7 @@
 
         <!-- Credits Section -->
         <div class="container mx-auto flex flex-col md:flex-row md:justify-center md:space-x-2 text-center mt-4 pt-3 border-t border-gray-700">
-            <p class="text-sm text-gray-400">&copy; <span id="current-year"></span> <span class="text-red-500">dreamroadnordic</span>. All rights reserved.</p>
+            <p class="text-sm text-gray-400">&copy; <span id="current-year"></span> <span class="text-red-500">Classic Tyres</span>. All rights reserved.</p>
             <p class="text-sm text-gray-400 mt-1 md:mt-0">Developed and maintained by <a href="https://quickofficepointe.com" target="_blank" class="text-red-500 hover:underline">QuickOfficePointe</a></p>
         </div>
     </footer>
@@ -434,5 +435,6 @@
     <!-- <script src="Assets/js/common.js"></script> -->
     <script src="Assets/js/product_search.js"></script>
     <script src="Assets/js/webshop.js"></script>
+    <script src="Assets/js/order_tracking.js"></script>
     </body>
 </html>

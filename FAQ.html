@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ - Classic Tyres</title>
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <h1 class="text-2xl font-bold text-red-700">Classic Tyres</h1>
+      <nav class="space-x-6">
+        <a href="index.html" class="text-gray-600 hover:text-red-700">Home</a>
+        <a href="FAQ.html" class="text-red-700 font-semibold">FAQ</a>
+        <a href="privacy-policy.html" class="text-gray-600 hover:text-red-700">Privacy Policy</a>
+        <a href="terms_of_service.html" class="text-gray-600 hover:text-red-700">Terms</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Content -->
+  <main class="max-w-5xl mx-auto px-4 py-12">
+    <h2 class="text-3xl font-bold text-center mb-8">Frequently Asked Questions</h2>
+
+    <div class="space-y-6">
+      <!-- FAQ Item -->
+      <details class="bg-white shadow-md rounded-lg p-6 border border-gray-200">
+        <summary class="cursor-pointer text-lg font-semibold text-red-700">
+          What types of tyres do you offer?
+        </summary>
+        <p class="mt-4 text-gray-600">
+          We specialize in classic, vintage, and specialty tyres, as well as rims that fit a wide variety of vehicles. 
+          Whether you need tyres for restoration projects, racing, or everyday driving, we have you covered.
+        </p>
+      </details>
+
+      <details class="bg-white shadow-md rounded-lg p-6 border border-gray-200">
+        <summary class="cursor-pointer text-lg font-semibold text-red-700">
+          Do you ship internationally?
+        </summary>
+        <p class="mt-4 text-gray-600">
+          Yes, we ship tyres and rims across Europe and internationally. Shipping costs and delivery times vary depending on your location.  
+          <br><br>
+        </p>
+      </details>
+
+      <details class="bg-white shadow-md rounded-lg p-6 border border-gray-200">
+        <summary class="cursor-pointer text-lg font-semibold text-red-700">
+          How can I check if a product is in stock?
+        </summary>
+        <p class="mt-4 text-gray-600">
+          Our webshop is updated in real-time. If you see a product listed, it’s available for order.  
+          For rare or limited items, feel free to <a href="contact.html" class="text-red-700 font-medium hover:underline">contact us</a> for confirmation.
+        </p>
+      </details>
+
+      <details class="bg-white shadow-md rounded-lg p-6 border border-gray-200">
+        <summary class="cursor-pointer text-lg font-semibold text-red-700">
+          What payment methods do you accept?
+        </summary>
+        <p class="mt-4 text-gray-600">
+          We accept all major credit/debit cards and bank transfers options.  
+          <br><br>
+        </p>
+      </details>
+
+      <details class="bg-white shadow-md rounded-lg p-6 border border-gray-200">
+        <summary class="cursor-pointer text-lg font-semibold text-red-700">
+          Can I return or exchange a product?
+        </summary>
+        <p class="mt-4 text-gray-600">
+          Yes, unused products can be returned or exchanged within 14 days of delivery.  
+          <br><br>
+        </p>
+      </details>
+
+      <details class="bg-white shadow-md rounded-lg p-6 border border-gray-200">
+        <summary class="cursor-pointer text-lg font-semibold text-red-700">
+          How do I contact customer support?
+        </summary>
+        <p class="mt-4 text-gray-600">
+          You can reach our support team via email or phone.  
+          <br><br>
+          FIXME: Add support email, phone number, and business hours.
+        </p>
+      </details>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 py-6 mt-12">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+      <p>&copy; <span id="year"></span> Classic Tyres. All rights reserved.</p>
+      <div class="space-x-4 mt-4 md:mt-0">
+        <a href="privacy-policy.html" class="hover:text-white">Privacy Policy</a>
+        <a href="terms-of-service.html" class="hover:text-white">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

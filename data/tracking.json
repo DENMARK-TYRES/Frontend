@@ -1,0 +1,14 @@
+[
+  {
+    "trackingNumber": "ABC123456",
+    "status": "In Transit",
+    "lastLocation": "Nairobi, Kenya",
+    "estimatedDelivery": "2025-08-20"
+  },
+  {
+    "trackingNumber": "XYZ987654",
+    "status": "Delivered",
+    "lastLocation": "Mombasa, Kenya",
+    "estimatedDelivery": "2025-08-15"
+  }
+]
