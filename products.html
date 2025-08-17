@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 font-sans">
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md fixed w-full z-10 top-0 left-0">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold text-red-700">Our Products</h1>
+      <a href="index.html" class="text-gray-700 hover:text-red-700 transition">Back to Shop</a>
+    </div>
+  </nav>
+
+  <!-- Main content -->
+  <main class="container mx-auto px-6 py-24">
+    <div id="product-container" class="bg-white shadow-lg rounded-2xl p-8 flex flex-col md:flex-row items-center gap-8">
+      <!-- JS will inject product details here -->
+      <p class="text-gray-500">Loading product details...</p>
+    </div>
+  </main>
+
+  <script>
+    // Example dataset (replace with fetch if you load from file/API)
+    const products = [
+      {
+        "Product Name": "Alloy Wheel 101",
+        "Image Link": "wheel1.jpg",
+        "Price": 250,
+        "PCD-EU (mm)": "120",
+        "Size (inches)": "18"
+      },
+      {
+        "Product Name": "Alloy Wheel 102",
+        "Image Link": "wheel2.jpg",
+        "Price": 300,
+        "PCD-EU (mm)": "114.3",
+        "Size (inches)": "19"
+      }
+    ];
+
+    // Parse query parameter (e.g., ?product=Alloy-Wheel-101)
+    const params = new URLSearchParams(window.location.search);
+    const productNameParam = params.get("product");
+    const formattedName = productNameParam?.replace(/-/g, " ");
+
+    // Find product
+    const product = products.find(p => p["Product Name"].toLowerCase() === formattedName?.toLowerCase());
+
+    const container = document.getElementById("product-container");
+
+    if (product) {
+      const imageUrl = product["Image Link"] && product["Image Link"] !== "nan"
+        ? `Assets/images/${product["Image Link"]}`
+        : "Assets/images/placeholder.webp";
+
+      container.innerHTML = `
+        <img src="${imageUrl}" alt="${product["Product Name"]}" class="w-full md:w-1/2 rounded-xl shadow">
+        <div class="flex-1 space-y-4">
+          <h2 class="text-3xl font-bold text-gray-900">${product["Product Name"]}</h2>
+          <p class="text-4xl font-extrabold text-red-700">£${product.Price}</p>
+          
+          <div class="grid grid-cols-2 gap-4 text-gray-700">
+            <p><span class="font-semibold">PCD-EU:</span> ${product["PCD-EU (mm)"]} mm</p>
+            <p><span class="font-semibold">Size:</span> ${product["Size (inches)"]} inches</p>
+          </div>
+
+          <button class="w-full bg-red-700 text-white py-3 rounded-xl font-semibold hover:bg-red-800 transition">
+            Place Order
+          </button>
+        </div>
+      `;
+    } else {
+      container.innerHTML = `<p class="text-red-600 text-lg">Product not found.</p>`;
+    }
+  </script>
+</body>
+</html>

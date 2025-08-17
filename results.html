@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DreamRoadNordic</title>
+    <title>Classic Tyres</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -69,9 +69,7 @@
         </div>
 
         <!-- Results Grid -->
-        <div id="results-container" class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <!-- Products will be dynamically loaded here -->
-        </div>
+        <div id="results-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6"></div>
 
         <!-- No Results Message -->
         <div id="no-results-message" class="hidden bg-white p-6 rounded-lg shadow-md text-center text-gray-600">
@@ -137,6 +135,8 @@
         </div>
     </footer>
 
+    
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const resultsContainer = document.getElementById('results-container');
@@ -173,7 +173,6 @@
                 if (value === "nan" || value === null || value === undefined || value === "0" || value === "0,00" || value === "x") {
                     return 'N/A';
                 }
-                // Replace comma with dot for consistent number parsing if needed
                 if (typeof value === 'string' && value.includes(',')) {
                     value = value.replace(',', '.');
                 }
@@ -185,83 +184,67 @@
                 resultsContainer.innerHTML = ''; // Clear any existing content
                 searchResults.forEach(product => {
                     const productCard = document.createElement('div');
-                    // Card layout: flex-col on mobile, flex-row on large screens (lg)
-                    // Added lg:gap-6 for spacing between image and details on desktop
                     productCard.classList.add(
-                        'bg-white', 'rounded-xl', 'shadow-lg', 'overflow-hidden',
-                        'hover:shadow-xl', 'transition-all', 'duration-300',
-                        'flex', 'flex-col', 'lg:flex-row', 'lg:gap-6', /* Added gap here */
-                        'transform', 'hover:-translate-y-1'
+                        "bg-white", "rounded-2xl", "shadow-md", "overflow-hidden",
+                        "hover:shadow-xl", "transition", "duration-300", "flex", "flex-col"
                     );
 
-                    // Use the Image Link for the main image, or a placeholder if none
+                    // Stock badge
+                    let stockBadge = "";
+                    if (product.Available && parseInt(product.Available) > 0) {
+                        stockBadge = `<span class="bg-green-600 text-white text-xs font-semibold px-2 py-1 rounded">In Stock: ${product.Available}</span>`;
+                    } else {
+                        stockBadge = `<span class="bg-red-600 text-white text-xs font-semibold px-2 py-1 rounded">Out of Stock</span>`;
+                    }
+
+                    // Fallback image
                     const imageLink = product["Image Link"];
-                    const imageUrl = (imageLink && imageLink !== "nan") ? "Assets/images/" + imageLink : 'https://placehold.co/400x300/e0e0e0/ffffff?text=No+Image';
+                    const imageUrl = (imageLink && imageLink !== "nan") 
+                        ? "Assets/images/" + imageLink 
+                        : "https://placehold.co/400x300/e0e0e0/ffffff?text=No+Image";
 
                     // Parse Webshop Price to a number and format
-                    const webshopPrice = parseFloat(product["Webshop Price"].replace(',', '.')) || 0;
-                    const formattedPrice = `$${webshopPrice.toFixed(2)}`;
+                    const webshopPrice = parseFloat(product["Webshop Price"]?.replace(',', '.')) || 0;
 
+                    // Card template
                     productCard.innerHTML = `
-                        <!-- Product Card Container -->
-                        <div class="flex flex-col lg:flex-row bg-white rounded-xl shadow-xl overflow-hidden hover:shadow-2xl transition duration-300 border border-gray-200">
-                        
-                        <!-- Image Section -->
-                        <div class="lg:w-1/3 relative">
-                            <img src="${imageUrl}" alt="${getDisplayValue(product["Product Name"])}" class="w-full h-64 object-fit lg:h-full lg:rounded-l-xl">
-                            
-                            <!-- Stock Badge -->
-                            ${product.Available && product.Available !== "nan" && parseInt(product.Available) > 0 ?
-                            `<span class="absolute top-3 left-3 bg-green-600 text-white text-sm font-semibold px-3 py-1 rounded-full shadow-md">In Stock: ${product.Available}</span>` :
-                            `<span class="absolute top-3 left-3 bg-red-600 text-white text-sm font-semibold px-3 py-1 rounded-full shadow-md">Out of Stock</span>`
-                            }
+                        <div class="relative">
+                            <img src="${imageUrl}" alt="${getDisplayValue(product["Product Name"])}"
+                                class="w-full h-64 object-cover cursor-pointer">
+                            <div class="absolute top-2 left-2">${stockBadge}</div>
                         </div>
 
-                        <!-- Details Section -->
-                        <div class="p-6 lg:w-2/3 flex flex-col justify-between space-y-4">
-
-                            <!-- Name and Price -->
+                        <div class="p-5 flex flex-col flex-grow justify-between">
                             <div>
-                            <h3 class="text-2xl font-bold text-gray-900 mb-1">${getDisplayValue(product["Product Name"])}</h3>
-                            <p class="text-3xl font-extrabold text-red-600 mb-4">$<span class="text-4xl">${webshopPrice.toFixed(2)}</span></p>
-                            <p class="text-gray-500 italic text-base mb-4">${getDisplayValue(product.Description)}</p>
+                                <h4 class="text-lg font-bold mb-2 text-gray-800">${getDisplayValue(product["Product Name"])}</h4>
+                                <p class="text-3xl font-extrabold text-red-700 mb-4">£${webshopPrice.toFixed(2)}</p>
+                                
+                                <div class="grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-gray-600">
+                                    <div><strong>PCD:</strong> ${getDisplayValue(product["PCD-EU mm"], ' mm')}</div>
+                                    <div><strong>Size:</strong> ${getDisplayValue(product["Wheel Size in Inch"], ' in')}</div>
+                                    <div><strong>Material:</strong> ${getDisplayValue(product["Wheel Material"])}</div>
+                                    <div><strong>Car Model:</strong> ${getDisplayValue(product["Car Model"])}</div>
+                                    <div><strong>Car Year:</strong> ${getDisplayValue(product["Car Year"])}</div>
+                                </div>
                             </div>
 
-                            <!-- Specs Grid -->
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-gray-700">
-                            <p><span class="font-semibold">Group:</span> ${getDisplayValue(product["Product Group Name"])}</p>
-                            <p><span class="font-semibold">Model:</span> ${getDisplayValue(product["Car Model"])}</p>
-                            <p><span class="font-semibold">Year:</span> ${getDisplayValue(product["Car Year"])}</p>
-                            <p><span class="font-semibold">Size:</span> ${getDisplayValue(product["Wheel Size in Inch"])}</p>
-                            <p><span class="font-semibold">Color:</span> ${getDisplayValue(product["Wheel Colour"])}</p>
-                            <p><span class="font-semibold">Material:</span> ${getDisplayValue(product["Wheel Material"])}</p>
-                            <p><span class="font-semibold">Offset (ET):</span> ${getDisplayValue(product["ET mm"], ' mm')}</p>
-                            <p><span class="font-semibold">PCD (EU):</span> ${getDisplayValue(product["PCD-EU mm"])}</p>
-                            <p><span class="font-semibold">Backspacing:</span> ${getDisplayValue(product["BS inch"], ' inch')}</p>
-                            <p><span class="font-semibold">Center Bore:</span> ${getDisplayValue(product["CB mm"], ' mm')}</p>
-                            <p><span class="font-semibold">Weight:</span> ${getDisplayValue(product.Weight, product["Weight Unit"])}</p>
+                            <div class="mt-5 flex space-x-3">
+                                <button class="flex-1 border border-gray-300 text-gray-700 font-semibold py-2 px-4 rounded-full hover:bg-gray-100 transition more-details-btn">
+                                    More Details
+                                </button>
+                                <button class="flex-1 bg-red-700 text-white font-bold py-2 px-4 rounded-full hover:bg-red-800 transition">
+                                    Place Order
+                                </button>
                             </div>
-
-                            <!-- CTA Buttons -->
-                            <div class="mt-6 flex flex-col sm:flex-row gap-4">
-                            <a href="tel:+1234567890" class="flex-1 bg-gradient-to-r from-red-600 to-red-400 text-white text-center py-3 px-4 rounded-lg shadow hover:shadow-lg transition duration-300 font-bold uppercase tracking-wide">
-                                Call to Order
-                            </a>
-                            <a href="#" class="flex-1 bg-gradient-to-r from-gray-800 to-gray-600 text-white text-center py-3 px-4 rounded-lg shadow hover:shadow-lg transition duration-300 font-bold uppercase tracking-wide">
-                                Add To Basket
-                            </a>
-                            </div>
-                            
                         </div>
-                        </div>
-                        `;
+                    `;
 
                     resultsContainer.appendChild(productCard);
                 });
                 noResultsMessage.classList.add('hidden'); // Hide no results message
             } else {
-                resultsContainer.innerHTML = ''; // Ensure container is empty
-                noResultsMessage.classList.remove('hidden'); // Show no results message
+                resultsContainer.innerHTML = ''; 
+                noResultsMessage.classList.remove('hidden'); 
             }
 
             // Update the current year in the footer
@@ -271,5 +254,6 @@
             }
         });
     </script>
+
 </body>
 </html>
