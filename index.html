@@ -74,18 +74,38 @@
         </div>
     </div>
 
-    <!-- Navbar  -->
-    <nav class="bg-black text-white py-4 shadow-md relative">
+    <!-- Navbar -->
+    <nav class="bg-black text-white py-4 shadow-md relative mb-12">
         <div class="container mx-auto px-4">
-            <ul id="nav-marquee-menu" class="flex overflow-x-auto whitespace-nowrap hide-scrollbar text-lg font-medium space-x-8 md:justify-between md:w-full py-1">
-                <li><a href="#product-search" class="inline-block px-2 py-1 hover:text-red-500 transition duration-300 flex-shrink-0">Brands Search</a></li>
-                <li><a href="#product-search" class="inline-block px-2 py-1 hover:text-red-500 transition duration-300 flex-shrink-0">Tyre Search</a></li>
-                <li><a href="#product-search" class="inline-block px-2 py-1 hover:text-red-500 transition duration-300 flex-shrink-0">Vehicle Search</a></li>
-                <li><a href="#" class="inline-block px-2 py-1 hover:text-red-500 transition duration-300 flex-shrink-0">Contact</a></li>
-                <li><a href="#" class="inline-block px-2 py-1 hover:text-red-500 transition duration-300 flex-shrink-0">About</a></li>
-                <li><a href="#" class="inline-block px-2 py-1 hover:text-red-500 transition duration-300 flex-shrink-0">Tech Info</a></li>
-                <li><a href="#" class="inline-block px-2 py-1 hover:text-red-500 transition duration-300 flex-shrink-0">Tyre Fitting</a></li>
+            <!-- Desktop: Horizontal Menu -->
+            <ul class="hidden md:flex justify-between text-lg font-medium space-x-6">
+            <li><a href="#product-search" class="hover:text-red-500 transition duration-300">Rims</a></li>
+            <li><a href="#product-search" class="hover:text-red-500 transition duration-300">Tyres</a></li>
+            <li><a href="#product-search" class="hover:text-red-500 transition duration-300">Models</a></li>
+            <li><a href="Contact_us.html" class="hover:text-red-500 transition duration-300">Contact</a></li>
+            <li><a href="#" class="hover:text-red-500 transition duration-300">About</a></li>
+            <li><a href="#" class="hover:text-red-500 transition duration-300">Dealer Account</a></li>
+            <li><a href="#footer" class="hover:text-red-500 transition duration-300">Extra Link</a></li>
             </ul>
+
+            <!-- Mobile: 4 columns x 2 rows -->
+            <div class="md:hidden grid grid-cols-4 gap-2 text-center text-sm font-medium">
+            <div class="flex flex-col space-y-1">
+                <a href="#product-search" class="hover:text-red-500 transition duration-300">Rims</a>
+                <a href="#product-search" class="hover:text-red-500 transition duration-300">Tyres</a>
+            </div>
+            <div class="flex flex-col space-y-1">
+                <a href="#product-search" class="hover:text-red-500 transition duration-300">Models</a>
+                <a href="Contact_us.html" class="hover:text-red-500 transition duration-300">Contact</a>
+            </div>
+            <div class="flex flex-col space-y-1">
+                <a href="#" class="hover:text-red-500 transition duration-300">About</a>
+                <!-- <a href="#" class="hover:text-red-500 transition duration-300">Dealer Account</a> -->
+            </div>
+            <div class="flex flex-col space-y-1">
+                <a href="#" class="hover:text-red-500 transition duration-300">Dealer Account</a>
+            </div>
+            </div>
         </div>
     </nav>
 
@@ -295,8 +315,6 @@
     </div>
     </section>
 
-
-
     <!-- Perfect Fit -->
     <section class="bg-white py-14 px-4">
         <div class="container mx-auto">
@@ -338,7 +356,7 @@
     </section>
 
     <!-- footer -->
-    <footer class="bg-black text-white py-6 px-4">
+    <footer class="bg-black text-white py-6 px-4" id="footer">
         <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             <!-- Services Column -->
             <div>
@@ -356,7 +374,7 @@
                 <h3 class="text-xl font-bold mb-4 text-red-500">Support</h3>
                 <ul class="space-y-2">
                     <li><a href="FAQ.html" class="hover:text-red-300 transition-colors duration-200">FAQ</a></li>
-                    <li><a href="#" class="hover:text-red-300 transition-colors duration-200">Contact Us</a></li>
+                    <li><a href="Contact_us.html" class="hover:text-red-300 transition-colors duration-200">Contact Us</a></li>
                     <li><a href="#" class="hover:text-red-300 transition-colors duration-200">Shipping & Returns</a></li>
                     <li><a href="#" id="orderTracking" class="hover:text-red-300 transition-colors duration-200">Order Tracking</a></li>
                 </ul>

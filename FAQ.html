@@ -5,21 +5,75 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FAQ - Classic Tyres</title>
   <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-  <!-- Header -->
-  <header class="bg-white shadow-md sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-      <h1 class="text-2xl font-bold text-red-700">Classic Tyres</h1>
-      <nav class="space-x-6">
-        <a href="index.html" class="text-gray-600 hover:text-red-700">Home</a>
-        <a href="FAQ.html" class="text-red-700 font-semibold">FAQ</a>
-        <a href="privacy-policy.html" class="text-gray-600 hover:text-red-700">Privacy Policy</a>
-        <a href="terms_of_service.html" class="text-gray-600 hover:text-red-700">Terms</a>
-      </nav>
+    <!-- logo and info row -->
+    <div class="bg-red-700 text-white py-3">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center px-4 space-y-3 md:space-y-0">
+            <!-- Logo Section -->
+            <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2">
+                <div class="flex items-center space-x-2">
+                    <img src="Assets/images/rim.svg" alt="Rim Icon" class="h-6 w-6 sm:h-8 sm:w-8">
+                    <h1 class="text-2xl sm:text-3xl font-bold tracking-wider uppercase text-center">Classic Tyres</h1>
+                    <img src="Assets/images/tyre.svg" alt="Tyre Icon" class="h-6 w-6 sm:h-8 sm:w-8">
+                </div>
+            </div>
+
+
+            <!-- Phone and Language Section -->
+            <div class="flex flex-row items-center justify-center sm:justify-end space-x-4 mt-3 md:mt-0 gap-4">
+                <div class="flex items-center space-x-2">
+                    <img src="Assets/images/call_chat.svg" alt="Call Icon" class="h-6 w-6 sm:h-8 sm:w-8">
+                    <span class="text-lg font-semibold">+123 456 7890</span>
+                </div>
+
+                <div>
+                    <select id="language-switcher" class="bg-black text-white border border-red-500 rounded px-2 py-1 text-base focus:outline-none focus:ring-2 focus:ring-red-300">
+                        <option value="en">English</option>
+                        <option value="fr">Français</option>
+                        <option value="da">Dansk (Danish)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
     </div>
-  </header>
+
+    <!-- Navbar -->
+    <nav class="bg-black text-white py-4 shadow-md relative mb-12">
+        <div class="container mx-auto px-4">
+            <!-- Desktop: Horizontal Menu -->
+            <ul class="hidden md:flex justify-between text-lg font-medium space-x-6">
+                <li><a href="index.html" class="hover:text-red-500 transition duration-300">Home</a></li>
+                <li><a href="#product-search" class="hover:text-red-500 transition duration-300">Rims</a></li>
+                <li><a href="#product-search" class="hover:text-red-500 transition duration-300">Tyres</a></li>
+                <li><a href="#product-search" class="hover:text-red-500 transition duration-300">Models</a></li>
+                <li><a href="#contact-info" class="hover:text-red-500 transition duration-300">Contact</a></li>
+                <li><a href="#" class="hover:text-red-500 transition duration-300">About</a></li>
+                <li><a href="#" class="hover:text-red-500 transition duration-300">Dealer Account</a></li>
+                <li><a href="#footer" class="hover:text-red-500 transition duration-300">Extra Link</a></li>
+            </ul>
+
+            <!-- Mobile: 4 columns x 2 rows -->
+            <div class="md:hidden grid grid-cols-4 gap-2 text-center text-sm font-medium">
+                <div class="flex flex-col space-y-1">
+                    <a href="#product-search" class="hover:text-red-500 transition duration-300">Rims</a>
+                    <a href="#product-search" class="hover:text-red-500 transition duration-300">Tyres</a>
+                </div>
+                <div class="flex flex-col space-y-1">
+                    <a href="#product-search" class="hover:text-red-500 transition duration-300">Models</a>
+                    <a href="#contact-info" class="hover:text-red-500 transition duration-300">Contact</a>
+                </div>
+                <div class="flex flex-col space-y-1">
+                    <a href="#" class="hover:text-red-500 transition duration-300">About</a>
+                </div>
+                <div class="flex flex-col space-y-1">
+                    <a href="#" class="hover:text-red-500 transition duration-300">Dealer Account</a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
   <!-- Page Content -->
   <main class="max-w-5xl mx-auto px-4 py-12">
@@ -90,19 +144,68 @@
     </div>
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-300 py-6 mt-12">
-    <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-      <p>&copy; <span id="year"></span> Classic Tyres. All rights reserved.</p>
-      <div class="space-x-4 mt-4 md:mt-0">
-        <a href="privacy-policy.html" class="hover:text-white">Privacy Policy</a>
-        <a href="terms-of-service.html" class="hover:text-white">Terms of Service</a>
-      </div>
-    </div>
-  </footer>
+    <!-- footer -->
+    <footer class="bg-black text-white py-6 px-4" id="footer">
+        <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+            <!-- Services Column -->
+            <div>
+                <h3 class="text-xl font-bold mb-4 text-red-500">Services</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-red-300 transition-colors duration-200">Tyre Fitting</a></li>
+                    <li><a href="#" class="hover:text-red-300 transition-colors duration-200">Wheel Balancing</a></li>
+                    <li><a href="#" class="hover:text-red-300 transition-colors duration-200">Rim Repair</a></li>
+                    <li><a href="#" class="hover:text-red-300 transition-colors duration-200">Custom Builds</a></li>
+                </ul>
+            </div>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+            <!-- Support Column -->
+            <div>
+                <h3 class="text-xl font-bold mb-4 text-red-500">Support</h3>
+                <ul class="space-y-2">
+                    <li><a href="FAQ.html" class="hover:text-red-300 transition-colors duration-200">FAQ</a></li>
+                    <li><a href="Contact_us.html" class="hover:text-red-300 transition-colors duration-200">Contact Us</a></li>
+                    <li><a href="#" class="hover:text-red-300 transition-colors duration-200">Shipping & Returns</a></li>
+                    <li><a href="#" id="orderTracking" class="hover:text-red-300 transition-colors duration-200">Order Tracking</a></li>
+                </ul>
+            </div>
+
+            <!-- Legal Column -->
+            <div>
+                <h3 class="text-xl font-bold mb-4 text-red-500">Legal</h3>
+                <ul class="space-y-2">
+                    <li><a href="privacy-policy.html" class="hover:text-red-300 transition-colors duration-200">Privacy Policy</a></li>
+                    <li><a href="terms_of_service.html" class="hover:text-red-300 transition-colors duration-200">Terms of Service</a></li>
+                    <li><a href="cookie-policy.html" class="hover:text-red-300 transition-colors duration-200">Cookie Policy</a></li>
+                </ul>
+            </div>
+
+            <!-- Socials Column -->
+            <div>
+                <h3 class="text-xl font-bold mb-4 text-red-500">Socials</h3>
+                <div class="flex space-x-4">
+                    <a href="#" class="hover:text-red-300 transition-colors duration-200">
+                        <img src="Assets/images/facebook.svg" alt="Facebook" class="w-7 h-7">
+                    </a>
+                    <a href="#" class="hover:text-red-300 transition-colors duration-200">
+                        <img src="Assets/images/email.svg" alt="Email" class="w-7 h-7">
+                    </a>
+                    <!-- Add more social icons as needed -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Credits Section -->
+        <div class="container mx-auto flex flex-col md:flex-row md:justify-center md:space-x-2 text-center mt-4 pt-3 border-t border-gray-700">
+            <p class="text-sm text-gray-400">&copy; <span id="current-year"></span> <span class="text-red-500">Classic Tyres</span>. All rights reserved.</p>
+            <p class="text-sm text-gray-400 mt-1 md:mt-0">Developed and maintained by <a href="https://quickofficepointe.com" target="_blank" class="text-red-500 hover:underline">QuickOfficePointe</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+
+    <script src="Assets/js/order_tracking.js"></script>
 </body>
 </html>
