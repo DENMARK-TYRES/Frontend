@@ -4,10 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Classic Tyres - Vintage Cars</title>
+    
+    <!-- Default SEO Meta Tags -->
+    <meta name="description" content="Classic Tyres offers premium tyres, rims, and vintage car accessories. Find the perfect fit for your vehicle today.">
+    <meta name="keywords" content="classic tyres, vintage car tyres, rims, vehicle accessories, car parts">
+    <meta name="author" content="Classic Tyres">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="Classic Tyres - Vintage Cars">
+    <meta property="og:description" content="Classic Tyres offers premium tyres, rims, and vintage car accessories. Find the perfect fit for your vehicle today.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.classictyres.dk">
+    <meta property="og:image" content="https://www.classictyres.dk/assets/og-image.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Classic Tyres - Vintage Cars">
+    <meta name="twitter:description" content="Classic Tyres offers premium tyres, rims, and vintage car accessories. Find the perfect fit for your vehicle today.">
+    <meta name="twitter:image" content="https://www.classictyres.dk/assets/twitter-image.jpg">
+    <meta name="twitter:site" content="@ClassicTyres"> <!-- FIXME: Replace with your actual Twitter handle -->
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <style>
-        /* Hide scrollbar for a cleaner marquee effect, but keep functionality */
+          /* Hide scrollbar for a cleaner marquee effect, but keep functionality */
         .hide-scrollbar::-webkit-scrollbar {
             display: none;
         }
@@ -23,25 +52,27 @@
             background-color: #ef4444; /* Tailwind red-500 */
         }
         /* Keyframes for continuous rotation */
-    @keyframes spin {
-        from {
-            transform: rotate(0deg);
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
         }
-        to {
-            transform: rotate(360deg);
-        }
-    }
 
-    /* custom animation classes for different speeds */
-    .animate-spin-slow {
-        animation: spin 5s linear infinite; 
-    }
-    .animate-spin-fast {
-        animation: spin 1s linear infinite; 
-    }
+        /* custom animation classes for different speeds */
+        .animate-spin-slow {
+            animation: spin 5s linear infinite; 
+        }
+        .animate-spin-fast {
+            animation: spin 1s linear infinite; 
+        }
     </style>
+
 </head>
-<body class="font-sans bg-white text-black">
+
+<body class="font-sans bg-white text-black" style="scroll-behavior: smooth;">
 
     <!-- logo and info row -->
     <div class="bg-red-700 text-white py-3">
@@ -50,7 +81,7 @@
             <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2">
                 <div class="flex items-center space-x-2">
                     <img src="Assets/images/rim.svg" alt="Rim Icon" class="h-6 w-6 sm:h-8 sm:w-8">
-                    <h1 class="text-2xl sm:text-3xl font-bold tracking-wider uppercase text-center">dreamroadnordic</h1>
+                    <h1 class="text-2xl sm:text-3xl font-bold tracking-wider uppercase text-center">Classic Tyres</h1>
                     <img src="Assets/images/tyre.svg" alt="Tyre Icon" class="h-6 w-6 sm:h-8 sm:w-8">
                 </div>
             </div>
@@ -456,3 +487,5 @@
     <script src="Assets/js/order_tracking.js"></script>
     </body>
 </html>
+
+
